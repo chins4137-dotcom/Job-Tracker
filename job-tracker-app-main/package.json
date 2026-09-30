@@ -1,0 +1,18 @@
+{
+  "name": "job-tracker-app",
+  "version": "1.0.0",
+  "description": "Job Application Tracker - Full-stack app with pure Node.js",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "NODE_ENV=production node server.js"
+  },
+  "keywords": [
+    "job-tracker",
+    "node",
+    "vanilla-js"
+  ],
+  "author": "",
+  "license": "ISC"
+}

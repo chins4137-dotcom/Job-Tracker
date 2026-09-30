@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Application Tracker</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <h1>Job Application Tracker</h1>
+      <p class="subtitle">Keep track of your job applications in one place</p>
+    </header>
+
+    <main>
+      <!-- Add / Edit Job Form Section -->
+      <section class="form-section card">
+        <h2 id="form-title">Add New Job</h2>
+        <form id="job-form" class="job-form">
+          <!-- Hidden field for job id when editing -->
+          <input type="hidden" id="job-id" name="id" value="">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="company">Company <span class="required">*</span></label>
+              <input
+                type="text"
+                id="company"
+                name="company"
+                required
+                placeholder="e.g., Google, Microsoft"
+                class="form-control"
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="role">Role <span class="required">*</span></label>
+              <input
+                type="text"
+                id="role"
+                name="role"
+                required
+                placeholder="e.g., Software Engineer"
+                class="form-control"
+              >
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="status">Status</label>
+              <select id="status" name="status" class="form-control">
+                <option value="Applied">Applied</option>
+                <option value="Interviewing">Interviewing</option>
+                <option value="Offer">Offer</option>
+                <option value="Rejected">Rejected</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="appliedDate">Applied Date</label>
+              <input
+                type="date"
+                id="appliedDate"
+                name="appliedDate"
+                class="form-control"
+              >
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="notes">Notes</label>
+            <textarea
+              id="notes"
+              name="notes"
+              rows="3"
+              placeholder="Add any notes about this application..."
+              class="form-control"
+            ></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" id="save-btn">Save Job</button>
+            <button type="reset" class="btn btn-secondary" id="reset-btn">Reset</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Filter Section -->
+      <section class="filter-section card">
+        <div class="filter-controls">
+          <label for="filter-status">Filter by Status:</label>
+          <select id="filter-status" class="form-control filter-select">
+            <option value="All">All</option>
+            <option value="Applied">Applied</option>
+            <option value="Interviewing">Interviewing</option>
+            <option value="Offer">Offer</option>
+            <option value="Rejected">Rejected</option>
+          </select>
+          <span class="filter-info">
+            Showing: <strong id="filtered-count">0</strong> of <strong id="total-count">0</strong> jobs
+          </span>
+        </div>
+      </section>
+
+      <!-- Jobs Table Section -->
+      <section class="jobs-section card">
+        <h2>Your Applications</h2>
+
+        <!-- Empty State -->
+        <div id="empty-state" class="empty-state">
+          <p>No applications yet. Add your first job application above!</p>
+        </div>
+
+        <!-- Jobs Table -->
+        <div class="table-container" id="table-container" style="display: none;">
+          <table class="jobs-table">
+            <thead>
+              <tr>
+                <th>Company</th>
+                <th>Role</th>
+                <th>Status</th>
+                <th>Applied Date</th>
+                <th>Notes</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="jobs-table-body">
+              <!-- Jobs will be dynamically inserted here -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2025 Job Application Tracker. Built with pure Node.js.</p>
+    </footer>
+  </div>
+
+  <!-- Load JavaScript -->
+  <script src="/main.js" defer></script>
+</body>
+</html>
